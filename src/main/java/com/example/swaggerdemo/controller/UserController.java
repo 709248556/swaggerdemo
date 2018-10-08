@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    @ApiOperation(value = "展示用户信息",notes = "展示用户")
+    @ApiOperation(value = "展示用户信息", notes = "展示用户")
     @GetMapping("/userList")
     public List<User> getUserlist() {
         List<User> users = new ArrayList<>();
@@ -27,22 +27,25 @@ public class UserController {
         }
         return users;
     }
-    @ApiOperation(value = "用户添加",notes = "添加用户")
-    @ApiImplicitParam(name = "user",value = "User",required = true,dataType ="User")
+
+    @ApiOperation(value = "用户添加", notes = "添加用户")
+    @ApiImplicitParam(name = "user", value = "User", required = true, dataType = "User")
     @PostMapping(value = "/addUser")
-    public String addUser(User user){
+    public String addUser(User user) {
         return "添加成功";
     }
-    @ApiOperation(value = "删除用户",notes = "删除用户")
-    @ApiImplicitParam(name = "id",value = "id",required = true,dataType = "int",paramType = "path")
+
+    @ApiOperation(value = "删除用户", notes = "删除用户")
+    @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "int", paramType = "path")
     @DeleteMapping("/deleteById/{id}")
-    public String deleteById(@PathVariable("id")int id){
+    public String deleteById(@PathVariable("id") int id) {
         return "删除成功";
     }
-    @ApiOperation(value = "修改用户",notes = "修改用户")
+
+    @ApiOperation(value = "修改用户", notes = "修改用户")
     @PutMapping("/updateUser")
-    @ApiImplicitParam(name = "user",value = "User",required = true,dataType = "User")
-    public String updateUser(User user){
+    @ApiImplicitParam(name = "user", value = "User", required = true, dataType = "User")
+    public String updateUser(User user) {
         return "修改成功";
     }
 }
